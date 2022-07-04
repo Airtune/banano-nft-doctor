@@ -28,7 +28,7 @@ app.post('/', async (req, res) => {
   const diagnoseUrl = req.body.url;
   res.write(diagnoseUrl);
   res.write('<br><br>');
-  const report = await diagnose('http://localhost:1919', res);
+  const report = await diagnose(diagnoseUrl, res);
   res.write('<hr><p>')
   res.write(JSON.stringify(report, null, 4).split('\n').join('\n<br>\n'));
   res.end('</p>');
